@@ -1,0 +1,253 @@
+:root {
+    --primary: #e31837;
+    --black: #1a1a1a;
+    --white: #ffffff;
+    --gray: #f0f0f0;
+    --dark-gray: #333333;
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.content-wrapper {
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 30px;
+}
+
+.pizza-hut-logo {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary);
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.camera-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 25px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.camera-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    background-color: var(--black);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+#video, #canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#canvas {
+    z-index: 2;
+    display: none;
+}
+
+.camera-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 3;
+}
+
+.viewfinder {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: var(--primary);
+    border-style: solid;
+    border-width: 0;
+}
+
+.corner.top-left {
+    top: -2px;
+    left: -2px;
+    border-top-width: 4px;
+    border-left-width: 4px;
+    border-top-left-radius: 5px;
+}
+
+.corner.top-right {
+    top: -2px;
+    right: -2px;
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-top-right-radius: 5px;
+}
+
+.corner.bottom-left {
+    bottom: -2px;
+    left: -2px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+    border-bottom-left-radius: 5px;
+}
+
+.corner.bottom-right {
+    bottom: -2px;
+    right: -2px;
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+    border-bottom-right-radius: 5px;
+}
+
+.scan-button-container {
+    margin: 20px 0;
+}
+
+.scan-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(227, 24, 55, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.scan-button:hover {
+    background-color: #c4122f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(227, 24, 55, 0.5);
+}
+
+.scan-button:active {
+    transform: translateY(0);
+}
+
+.status-message {
+    margin-top: 15px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.status-message.scanning {
+    background-color: rgba(255, 193, 7, 0.2);
+}
+
+.status-message.success {
+    background-color: rgba(40, 167, 69, 0.2);
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #6c757d;
+}
+
+.status-message.scanning .status-indicator {
+    background-color: #ffc107;
+    box-shadow: 0 0 10px #ffc107;
+    animation: pulse 1.5s infinite;
+}
+
+.status-message.success .status-indicator {
+    background-color: #28a745;
+    box-shadow: 0 0 10px #28a745;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .content-wrapper {
+        padding: 0 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .scan-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .status-message {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+    }
+}
