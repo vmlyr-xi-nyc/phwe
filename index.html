@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Hut White Elephant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <div class="content-wrapper">
+            <div class="logo-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Pizza_Hut_1967-1999_logo.svg/1200px-Pizza_Hut_1967-1999_logo.svg.png" 
+                     alt="Pizza Hut Logo" class="pizza-hut-logo">
+                <h1>WHITE ELEPHANT</h1>
+                <p class="subtitle">SCAN TO PLAY</p>
+            </div>
+
+            <div class="camera-container">
+                <div class="camera-frame">
+                    <video id="video" width="100%" height="100%" autoplay playsinline></video>
+                    <canvas id="canvas"></canvas>
+                    <div id="camera-placeholder" class="camera-placeholder">
+                        <div class="viewfinder">
+                            <div class="corner top-left"></div>
+                            <div class="corner top-right"></div>
+                            <div class="corner bottom-left"></div>
+                            <div class="corner bottom-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scan-button-container">
+                <button id="start-camera" class="scan-button">SCAN TO PLAY</button>
+            </div>
+
+            <div id="detection-status" class="status-message">
+                <div class="status-indicator"></div>
+                <span class="status-text">Ready to scan</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TensorFlow.js and Teachable Machine -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
